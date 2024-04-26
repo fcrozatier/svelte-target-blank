@@ -14,7 +14,7 @@ export default (options: Options = { mode: "warn" }) => {
 			if (!content.includes("<a ")) return { code: content };
 
 			const markup = new MagicString(content, { filename });
-			const ast = parse(content, { filename, css: false });
+			const ast = parse(content, { filename });
 
 			walk(ast, {
 				enter(node) {
@@ -39,7 +39,7 @@ target-blank found an external link without a 'target' attribute:
 								throw new Error(msg);
 							}
 
-							markup.appendLeft(href.end, 'target="_blank"');
+							markup.appendLeft(href.end, ' target="_blank"');
 						}
 					}
 				},
