@@ -1,8 +1,8 @@
 {
 	"name": "svelte-target-blank",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"type": "module",
-	"description": "A simple svelte preprocessor to find and fix your external links",
+	"description": "Simple svelte preprocessor to fix your external links",
 	"main": "./build/index.js",
 	"scripts": {
 		"build": "tsc",
