@@ -1,10 +1,10 @@
 # svelte-target-blank
 
-Did you forget to set `target="_blank"` somewhere on one of your external links?
+Did you forget to set `target="_blank"` on some of your external links?
 
-`svelte-target-blank` is a little Svelte preprocessor to help with that.
+The Svelte preprocessor `svelte-target-blank` will help you fix the situation:
 
-It will automatically fix all these external links for you and let you know which files+anchors were edited.
+It will automatically fix all these external links for you and let you know which files the anchors were edited.
 
 
 ## Get started
@@ -20,8 +20,9 @@ import targetBlank from "svelte-target-blank";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  ...
-	preprocess: [vitePreprocess(), targetBlank({ mode: "warn" })], // Add it to the list
+  ...,
+  preprocess: [vitePreprocess(), targetBlank({ mode: "warn" })], // Add it to the list
+  ...,
 };
 
 export default config;
@@ -32,9 +33,9 @@ export default config;
 
 `mode`: Let's you configure how verbose the preprocessor is
 
-- `warn` (default) -  Emit a console warning when a missing target is found
+- `warn` (default) - Emit a console warning when a missing `target` is found
 - `silent` - Silently fix links
-- `error` - Throw an error
+- `error` - Throw an error if there is any missing `target`
 
 
 ## Licence
