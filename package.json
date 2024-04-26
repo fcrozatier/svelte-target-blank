@@ -1,9 +1,15 @@
 {
 	"name": "svelte-target-blank",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"type": "module",
 	"description": "Simple svelte preprocessor to fix your external links",
 	"main": "./build/index.js",
+	"files": [
+		"./build"
+	],
+	"exports": {
+		".": "./build/index.js"
+	},
 	"scripts": {
 		"build": "tsc",
 		"test": "vitest",
@@ -15,7 +21,14 @@
 		"preprocessor"
 	],
 	"author": "Frédéric Crozatier",
-	"license": "",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/fcrozatier/svelte-targe-blank.git"
+	},
+	"bugs": {
+		"url": "https://github.com/fcrozatier/svelte-targe-blank/issues"
+	},
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "^6.18.1",
 		"@typescript-eslint/parser": "^6.18.1",
