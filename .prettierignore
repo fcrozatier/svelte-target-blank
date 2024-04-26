@@ -1,0 +1,5 @@
+# Prettier 3 already ignores files in the .gitignore
+# Ignore files for PNPM, NPM and YARN
+pnpm-lock.yaml
+package-lock.json
+yarn.lock

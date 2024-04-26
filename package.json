@@ -1,0 +1,33 @@
+{
+	"name": "svelte-target-blank",
+	"version": "0.0.1",
+	"type": "module",
+	"description": "A simple svelte preprocessor to find and fix your external links",
+	"main": "./build/index.js",
+	"scripts": {
+		"build": "tsc",
+		"test": "vitest",
+		"format": "prettier --write .",
+		"lint": "prettier --check . && eslint ."
+	},
+	"keywords": [
+		"svelte",
+		"preprocessor"
+	],
+	"author": "Frédéric Crozatier",
+	"license": "",
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^6.18.1",
+		"@typescript-eslint/parser": "^6.18.1",
+		"eslint": "^8.57.0",
+		"eslint-config-prettier": "^9.1.0",
+		"prettier": "^3.2.5",
+		"svelte": "^4.2.15",
+		"typescript": "^5.4.4",
+		"vitest": "^1.4.0"
+	},
+	"dependencies": {
+		"estree-walker": "^3.0.3",
+		"magic-string": "^0.30.10"
+	}
+}
