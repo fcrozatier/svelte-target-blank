@@ -1,17 +1,41 @@
-# Scaffold your next ts package
+# svelte-target-blank
 
-A simple way to kickstart your next ts project _instantly_ and save the scaffolding part. Includes modern stack:
+Did you forget to set `target="_blank"` somewhere on one of your external links?
 
-- TypeScript
-- Prettier (optional)
-- ESLint (optional)
-- Vitest (optional)
+`svelte-target-blank` is a little Svelte preprocessor to help with that.
+
+It will automatically fix all these external links for you and let you know which files+anchors were edited.
+
 
 ## Get started
 
 ```sh
-npx scaffold-ts-project my-project-name
+npm install -D svelte-target-blank
 ```
+
+Then update your `svelte.config` file:
+
+```js
+import targetBlank from "svelte-target-blank";
+
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
+  ...
+	preprocess: [vitePreprocess(), targetBlank({ mode: "warn" })], // Add it to the list
+};
+
+export default config;
+
+```
+
+## Options
+
+`mode`: Let's you configure how verbose the preprocessor is
+
+- `warn` (default) -  Emit a console warning when a missing target is found
+- `silent` - Silently fix links
+- `error` - Throw an error
+
 
 ## Licence
 
