@@ -13,7 +13,7 @@ It will automatically fix all these external links for you and let you know whic
 npm install -D svelte-target-blank
 ```
 
-Then update your `svelte.config` file:
+Then update your `svelte.config.js` file:
 
 ```js
 import targetBlank from "svelte-target-blank";
@@ -28,6 +28,31 @@ const config = {
 export default config;
 
 ```
+
+You're all set!
+
+## Example
+
+Now any external link
+
+```html
+<a href="https://external-ressource.com">check this out</a>
+```
+
+will be transformed into
+
+```html
+<a href="https://external-ressource.com" target="_blank">check this out</a>
+```
+
+with a message in the console:
+
+```sh
+svelte-target-blank found an external link with no 'target' attribute:
+  file: /src/+page.svelte
+  anchor: <a href="https://external-ressource">check this out</a>
+```
+
 
 ## Options
 
