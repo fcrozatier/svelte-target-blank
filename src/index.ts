@@ -29,7 +29,7 @@ export default (options: Options = { mode: "warn" }) => {
 
 						if (external && !target) {
 							const msg = `
-target-blank found an external link without a 'target' attribute:
+svelte-target-blank found an external link without a 'target' attribute:
 \tfile: ${filename}
 \tanchor: ${markup.slice(node.start, node.end)}
 							`;
