@@ -28,13 +28,12 @@ export default (options: Options = { mode: "warn" }) => {
 						const external = hrefValue.match(regex);
 
 						if (external && !target) {
-							const msg = `
-svelte-target-blank found an external link without a 'target' attribute:
+							const msg = `svelte-target-blank found an external link without a 'target' attribute:
 \tfile: ${filename}
 \tanchor: ${markup.slice(node.start, node.end)}
 							`;
 							if (options.mode === "warn") {
-								console.warn("\x1b[33m%s\x1b[0m", msg);
+								console.log("\x1b[33m%s\x1b[0m", msg);
 							} else if (options.mode === "error") {
 								throw new Error(msg);
 							}
