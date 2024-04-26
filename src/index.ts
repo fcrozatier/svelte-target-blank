@@ -34,7 +34,7 @@ svelte-target-blank found an external link without a 'target' attribute:
 \tanchor: ${markup.slice(node.start, node.end)}
 							`;
 							if (options.mode === "warn") {
-								console.warn(msg);
+								console.warn("\x1b[33m", msg);
 							} else if (options.mode === "error") {
 								throw new Error(msg);
 							}
