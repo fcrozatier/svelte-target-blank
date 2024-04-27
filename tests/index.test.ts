@@ -1,7 +1,7 @@
 import { expect, test } from "vitest";
 import preprocess from "../src/index";
 
-const { markup } = preprocess({ mode: "silent" });
+const { markup } = preprocess({ logLevel: "quiet" });
 
 test.each([
 	[
