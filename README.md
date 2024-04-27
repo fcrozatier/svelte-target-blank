@@ -6,7 +6,6 @@ Or maybe you have markdown files and it would be nice but cumbersome to set thes
 
 `svelte-target-blank` fixes all these external links and lets you know the corresponding files if you want / can edit the code.
 
-
 ## Get started
 
 ```sh
@@ -22,9 +21,9 @@ import targetBlank from "svelte-target-blank";
 const config = {
   ...,
   preprocess: [
-		vitePreprocess(),
-		mdsvex(mdsvexOptions),
-		targetBlank({ mode: 'warn', silentList: '/**/*.md' }) // Add it to the list
+    vitePreprocess(),
+    mdsvex(mdsvexOptions),
+    targetBlank({ mode: 'warn', silentList: '/**/*.md' })
 	],
   ...,
 };
@@ -33,7 +32,7 @@ export default config;
 
 ```
 
-If you use a markdown preprocessor like `mdsvex` above, put `svelte-target-blank` after in the list. This way your external links in markdown files will be normalized too.
+If you use a markdown preprocessor like `mdsvex` above, put `svelte-target-blank` after it in the list. This way your external links in markdown files will be normalized too.
 
 You're all set!
 
