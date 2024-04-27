@@ -23,7 +23,7 @@ const config = {
   preprocess: [
     vitePreprocess(),
     mdsvex(mdsvexOptions),
-    targetBlank({ mode: 'warn', silentList: '/**/*.md' })
+    targetBlank({ logLevel: 'warn', quietList: '/**/*.md' })
 	],
   ...,
 };
@@ -66,13 +66,12 @@ svelte-target-blank found an external link with no 'target' attribute:
 
 ## Options
 
-`mode`: Let's you configure how verbose the preprocessor is
+`logLevel`: Let's you configure how verbose the preprocessor is
 
 - `warn` (default) - Emit a console warning when a missing `target` is found
-- `silent` - Silently fix links
-- `error` - Throw an error if there is any missing `target`
+- `quiet` - Silently fix links
 
-`silentList`: One or more glob patterns of locations to fix without emitting any warning. Ex: `"/**/*.md"`
+`quietList`: One or more glob patterns of locations to fix without emitting any warning. Ex: `"/**/*.md"`
 
 ## Licence
 
