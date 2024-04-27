@@ -1,6 +1,6 @@
 {
 	"name": "svelte-target-blank",
-	"version": "0.1.5",
+	"version": "0.2.0",
 	"type": "module",
 	"description": "Simple svelte preprocessor to fix your external links",
 	"main": "./build/index.js",
@@ -30,6 +30,7 @@
 		"url": "https://github.com/fcrozatier/svelte-targe-blank/issues"
 	},
 	"devDependencies": {
+		"@types/picomatch": "^2.3.3",
 		"@typescript-eslint/eslint-plugin": "^6.18.1",
 		"@typescript-eslint/parser": "^6.18.1",
 		"eslint": "^8.57.0",
@@ -41,6 +42,7 @@
 	},
 	"dependencies": {
 		"estree-walker": "^3.0.3",
-		"magic-string": "^0.30.10"
+		"magic-string": "^0.30.10",
+		"picomatch": "^4.0.2"
 	}
 }
