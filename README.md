@@ -1,10 +1,10 @@
 # svelte-target-blank
 
-Did you forget to set `target="_blank"` on some of your external links?
+Do you like to set `target="_blank"` on your external links but happen to forget sometimes? Or maybe you have markdown files add idd would be cumbersome to set these attributes?
 
-The Svelte preprocessor `svelte-target-blank` will help you fix the situation:
+The Svelte preprocessor `svelte-target-blank` can help you with that!
 
-It will automatically fix all these external links for you and let you know which files the anchors were edited.
+It will fix all these external links and let you know the corresponding files if you want / can edit the markup.
 
 
 ## Get started
