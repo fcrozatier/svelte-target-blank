@@ -1,5 +1,11 @@
 # svelte-target-blank
 
+## 1.0.0
+
+### Major Changes
+
+- d200edc: production ready milestone
+
 ## 0.2.3
 
 ### Patch Changes
