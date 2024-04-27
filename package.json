@@ -14,7 +14,8 @@
 		"build": "tsc",
 		"test": "vitest",
 		"format": "prettier --write .",
-		"lint": "prettier --check . && eslint ."
+		"lint": "prettier --check . && eslint .",
+		"check": "tsc --noEmit"
 	},
 	"keywords": [
 		"svelte",
@@ -30,6 +31,7 @@
 		"url": "https://github.com/fcrozatier/svelte-targe-blank/issues"
 	},
 	"devDependencies": {
+		"@changesets/cli": "^2.27.1",
 		"@types/picomatch": "^2.3.3",
 		"@typescript-eslint/eslint-plugin": "^6.18.1",
 		"@typescript-eslint/parser": "^6.18.1",
