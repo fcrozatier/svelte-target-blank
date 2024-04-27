@@ -1,6 +1,7 @@
 import MagicString from "magic-string";
 import { walk } from "./helpers.js";
 import { parse, type PreprocessorGroup } from "svelte/compiler";
+import type { Element } from "svelte/types/compiler/interfaces";
 import picomatch from "picomatch";
 
 export type TargetBlankOptions = {
@@ -29,8 +30,12 @@ export default (options: TargetBlankOptions = { mode: "warn" }) => {
 			walk(ast, {
 				enter(node) {
 					if (node.type === "Element" && node.name === "a") {
-						const href = node.attributes.find((a) => a.name === "href");
-						const target = node.attributes.find((a) => a.name === "target");
+						const href = node.attributes.find(
+							(a: Element["attributes"][number]) => a.name === "href",
+						);
+						const target = node.attributes.find(
+							(a: Element["attributes"][number]) => a.name === "target",
+						);
 
 						// Match string literal in single or double quotes, with optional mustache tag and secure protocol
 						const regex = /href={?['"]https?:\/\//;
