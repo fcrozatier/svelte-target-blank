@@ -2,11 +2,9 @@
 
 Do you like to set `target="_blank"` on your external links but happen to forget sometimes?
 
-Or maybe you have markdown files and it would be cumbersome to set these attributes?
+Or maybe you have markdown files and it would be nice but cumbersome to set these attributes?
 
-The Svelte preprocessor `svelte-target-blank` can help you with that.
-
-It fixes all these external links and lets you know the corresponding files if you want / can edit the markup.
+`svelte-target-blank` fixes all these external links and lets you know the corresponding files if you want / can edit the code.
 
 
 ## Get started
@@ -23,7 +21,11 @@ import targetBlank from "svelte-target-blank";
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   ...,
-  preprocess: [vitePreprocess(), targetBlank({ mode: "warn" })], // Add it to the list
+  preprocess: [
+		vitePreprocess(),
+		mdsvex(mdsvexOptions),
+		targetBlank({ mode: 'warn', silentList: '/**/*.md' }) // Add it to the list
+	],
   ...,
 };
 
@@ -31,14 +33,22 @@ export default config;
 
 ```
 
+If you use a markdown preprocessor like `mdsvex` above, put `svelte-target-blank` after in the list. This way your external links in markdown files will be normalized too.
+
 You're all set!
 
 ## Example
 
-Now any external link
+Now any external link in you markup
 
 ```html
 <a href="https://external-ressource.com">check this out</a>
+```
+
+or in your markdown
+
+```md
+[check this out](https://external-ressource.com)
 ```
 
 will be transformed into
@@ -55,7 +65,6 @@ svelte-target-blank found an external link with no 'target' attribute:
   anchor: <a href="https://external-ressource">check this out</a>
 ```
 
-
 ## Options
 
 `mode`: Let's you configure how verbose the preprocessor is
@@ -64,6 +73,7 @@ svelte-target-blank found an external link with no 'target' attribute:
 - `silent` - Silently fix links
 - `error` - Throw an error if there is any missing `target`
 
+`silentList`: One or more glob patterns of locations to fix without emitting any warning. Ex: `"/**/*.md"`
 
 ## Licence
 
