@@ -5,23 +5,26 @@ import type { Element } from "svelte/types/compiler/interfaces";
 import picomatch from "picomatch";
 
 export type TargetBlankOptions = {
-	mode: "warn" | "silent" | "error";
 	/**
-	 * Glob pattern string or strings of files to fix silently. Ex: "*.md"
+	 * Whether or not to display a warning in the console when an anchor is transformed
 	 */
-	silentList?: string | string[];
+	logLevel?: "warn" | "quiet";
+	/**
+	 * Glob pattern string or strings of files to fix quietly.
+	 */
+	quietList?: string | string[];
 };
 
-export default (options: TargetBlankOptions = { mode: "warn" }) => {
+export default (options: TargetBlankOptions = { logLevel: "warn" }) => {
 	// By default no warning is silent
-	const silent = options?.silentList
-		? picomatch(options.silentList)
+	const silent = options?.quietList
+		? picomatch(options.quietList)
 		: () => false;
 
 	return {
 		name: "Svelte Target Blank",
 		markup: ({ content, filename }) => {
-			// Only parse files containing AnchorElements
+			// Only parse files containing HTMLAnchorElements
 			if (!content.includes("<a ")) return { code: content };
 
 			const markup = new MagicString(content, { filename });
@@ -49,10 +52,8 @@ export default (options: TargetBlankOptions = { mode: "warn" }) => {
 								`\tanchor: ${markup.slice(node.start, node.end)}\n`;
 							String.prototype.match;
 
-							if (options.mode === "warn" && !silent(filename ?? "")) {
+							if (options.logLevel === "warn" && !silent(filename ?? "")) {
 								console.log("\x1b[33m%s\x1b[0m", msg);
-							} else if (options.mode === "error") {
-								throw new Error(msg);
 							}
 
 							markup.appendLeft(href.end, ' target="_blank"');
