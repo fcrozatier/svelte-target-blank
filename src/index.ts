@@ -1,5 +1,5 @@
 import MagicString from "magic-string";
-import { walk } from "estree-walker";
+import { walk } from "./helpers.js";
 import { parse, type PreprocessorGroup } from "svelte/compiler";
 import picomatch from "picomatch";
 
