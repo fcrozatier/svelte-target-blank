@@ -15,7 +15,8 @@
 		"test": "vitest",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
-		"check": "tsc --noEmit"
+		"check": "tsc --noEmit",
+		"release": "npm run build && changeset publish"
 	},
 	"keywords": [
 		"svelte",
